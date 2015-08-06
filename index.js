@@ -1,7 +1,5 @@
-"use babel";
+'use babel';
 
-import fs      from 'fs';
-import path    from 'path';
 import postcss from 'postcss';
 import cssfmt  from 'cssfmt';
 
