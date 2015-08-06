@@ -10,7 +10,7 @@ $ apm install cssfmt
 
 ## Usage
 
-- Press ctrl + alt + c
+- Press ctrl + alt + f
 - Packages > cssfmt > Format CSS
 - Right Click > Format CSS
 
