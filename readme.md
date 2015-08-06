@@ -2,7 +2,7 @@
 
 Format your CSS using [cssfmt](https://github.com/morishitter/cssfmt).
 
-![](cssfmt.gif)
+![atom-cssfmt demo](https://raw.githubusercontent.com/1000ch/atom-cssfmt/master/cssfmt.gif)
 
 ## Installation
 

@@ -3,15 +3,15 @@
 import cssfmt  from 'cssfmt';
 
 export let config = {
-  executeOnSave: {
-    title: 'Execute on save',
-    description: 'Formatting CSS on save.',
+  formatOnSave: {
+    title: 'Format on Save',
+    description: 'Execute formatting CSS on save.',
     type: 'boolean',
     default: false
   }
 };
 
-const executeOnSave = () => atom.config.get('cssfmt.executeOnSave');
+const formatOnSave = () => atom.config.get('cssfmt.formatOnSave');
 
 const execute = () => {
 
@@ -50,7 +50,7 @@ export const activate = (state) => {
 
   editorObserver = atom.workspace.observeTextEditors((editor) => {
     editor.getBuffer().onWillSave(() => {
-      if (executeOnSave()) {
+      if (formatOnSave()) {
         execute();
       }
     });
