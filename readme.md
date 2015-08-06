@@ -1,6 +1,6 @@
 # [atom-cssfmt](https://atom.io/packages/cssfmt)
 
-Format your JavaScript using [cssfmt](https://github.com/morishitter/cssfmt).
+Format your CSS using [cssfmt](https://github.com/morishitter/cssfmt).
 
 ## Installation
 
