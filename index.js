@@ -1,6 +1,5 @@
 'use babel';
 
-import postcss from 'postcss';
 import cssfmt  from 'cssfmt';
 
 export let config = {
@@ -24,13 +23,12 @@ const execute = () => {
 
   let text = editor.getText();
   let selectedText = editor.getSelectedText();
-  let formatter = postcss().use(cssfmt());
 
   if (selectedText.length !== 0) {
     try {
       editor.setTextInBufferRange(
         editor.getSelectedBufferRange(),
-        formatter.process(selectedText).css
+        cssfmt.process(selectedText)
       );
     } catch (e) {}
   } else {
