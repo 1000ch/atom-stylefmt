@@ -33,7 +33,9 @@ const execute = () => {
     } catch (e) {}
   } else {
     try {
-      editor.setText(formatter.process(text).css);
+      editor.setText(
+        cssfmt.process(text)
+      );
     } catch (e) {}
   }
 };

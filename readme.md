@@ -2,6 +2,8 @@
 
 Format your CSS using [cssfmt](https://github.com/morishitter/cssfmt).
 
+![](cssfmt.gif)
+
 ## Installation
 
 ```bash
