@@ -1,6 +1,6 @@
 {
   "name": "cssfmt",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "Format your CSS using cssfmt",
   "activationCommands": {
