@@ -1,5 +1,5 @@
-'atom-text-editor':
-  'atom-workspace': [{
+'context-menu':
+  'atom-text-editor': [{
     label: 'Format CSS'
     command: 'cssfmt:execute'
   }]
