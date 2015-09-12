@@ -1,4 +1,4 @@
-# [atom-cssfmt](https://atom.io/packages/cssfmt)
+# [atom-cssfmt](https://atom.io/packages/cssfmt) [![Dependency Status](https://david-dm.org/1000ch/atom-cssfmt.svg)](https://david-dm.org/1000ch/atom-cssfmt)
 
 Format your CSS using [cssfmt](https://github.com/morishitter/cssfmt).
 
