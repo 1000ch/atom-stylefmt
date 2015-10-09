@@ -21,6 +21,7 @@ const execute = () => {
     return;
   }
 
+  let position = editor.getCursorBufferPosition();
   let text = editor.getText();
   let selectedText = editor.getSelectedText();
 
@@ -38,6 +39,8 @@ const execute = () => {
       );
     } catch (e) {}
   }
+
+  editor.setCursorBufferPosition(position);
 };
 
 let editorObserver = null;
