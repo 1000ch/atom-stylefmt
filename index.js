@@ -27,16 +27,14 @@ const execute = () => {
 
   if (selectedText.length !== 0) {
     try {
-      editor.setTextInBufferRange(
-        editor.getSelectedBufferRange(),
-        cssfmt.process(selectedText)
-      );
+      let range = editor.getSelectedBufferRange();
+      let css = cssfmt.process(selectedText);
+      editor.setTextInBufferRange(range, css);
     } catch (e) {}
   } else {
     try {
-      editor.setText(
-        cssfmt.process(text)
-      );
+      let css = cssfmt.process(text);
+      editor.setText(css);
     } catch (e) {}
   }
 
