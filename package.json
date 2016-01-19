@@ -32,6 +32,6 @@
   },
   "homepage": "https://github.com/1000ch/atom-cssfmt#readme",
   "dependencies": {
-    "cssfmt": "^1.3.7"
+    "cssfmt": "^1.4.1"
   }
 }

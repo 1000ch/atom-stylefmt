@@ -1,8 +1,8 @@
 'use babel';
 
-import cssfmt  from 'cssfmt';
+import cssfmt from 'cssfmt';
 
-export let config = {
+export const config = {
   formatOnSave: {
     title: 'Format on Save',
     description: 'Execute formatting CSS on save.',
@@ -11,10 +11,7 @@ export let config = {
   }
 };
 
-const formatOnSave = () => atom.config.get('cssfmt.formatOnSave');
-
-const execute = () => {
-
+function execute() {
   const editor = atom.workspace.getActiveTextEditor();
 
   if (!editor) {
@@ -30,34 +27,42 @@ const execute = () => {
       let range = editor.getSelectedBufferRange();
       let css = cssfmt.process(selectedText);
       editor.setTextInBufferRange(range, css);
-    } catch (e) {}
+      editor.setCursorBufferPosition(position);
+    } catch (e) {
+      console.error(e);
+    }
   } else {
     try {
       let css = cssfmt.process(text);
       editor.setText(css);
-    } catch (e) {}
+      editor.setCursorBufferPosition(position);
+    } catch (e) {
+      console.error(e);
+    }
   }
+}
 
-  editor.setCursorBufferPosition(position);
-};
+let editorObserver;
+let formatOnSave;
 
-let editorObserver = null;
-
-export const activate = (state) => {
-
+export function activate(state) {
   atom.commands.add('atom-workspace', 'cssfmt:execute', () => {
     execute();
   });
 
-  editorObserver = atom.workspace.observeTextEditors((editor) => {
+  editorObserver = atom.workspace.observeTextEditors(editor => {
     editor.getBuffer().onWillSave(() => {
-      if (formatOnSave()) {
+      if (formatOnSave) {
         execute();
       }
     });
   });
-};
 
-export const deactivate = () => {
+  formatOnSave = atom.config.get('cssfmt.formatOnSave');
+
+  atom.config.observe('cssfmt.formatOnSave', value => formatOnSave = value);
+}
+
+export function deactivate() {
   editorObserver.dispose();
-};
+}
