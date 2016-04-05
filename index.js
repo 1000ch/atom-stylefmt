@@ -1,6 +1,6 @@
 'use babel';
 
-import cssfmt from 'cssfmt';
+import stylefmt from 'stylefmt';
 
 export const config = {
   formatOnSave: {
@@ -25,7 +25,7 @@ function execute() {
   if (selectedText.length !== 0) {
     try {
       let range = editor.getSelectedBufferRange();
-      let css = cssfmt.process(selectedText);
+      let css = stylefmt.process(selectedText);
       editor.setTextInBufferRange(range, css);
       editor.setCursorBufferPosition(position);
     } catch (e) {
@@ -33,7 +33,7 @@ function execute() {
     }
   } else {
     try {
-      let css = cssfmt.process(text);
+      let css = stylefmt.process(text);
       editor.setText(css);
       editor.setCursorBufferPosition(position);
     } catch (e) {
@@ -46,7 +46,7 @@ let editorObserver;
 let formatOnSave;
 
 export function activate(state) {
-  atom.commands.add('atom-workspace', 'cssfmt:execute', () => {
+  atom.commands.add('atom-workspace', 'stylefmt:execute', () => {
     execute();
   });
 
@@ -58,9 +58,9 @@ export function activate(state) {
     });
   });
 
-  formatOnSave = atom.config.get('cssfmt.formatOnSave');
+  formatOnSave = atom.config.get('stylefmt.formatOnSave');
 
-  atom.config.observe('cssfmt.formatOnSave', value => formatOnSave = value);
+  atom.config.observe('stylefmt.formatOnSave', value => formatOnSave = value);
 }
 
 export function deactivate() {

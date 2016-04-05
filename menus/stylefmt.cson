@@ -1,16 +1,16 @@
 'context-menu':
   'atom-text-editor': [{
     label: 'Format CSS'
-    command: 'cssfmt:execute'
+    command: 'stylefmt:execute'
   }]
 
 'menu': [{
   'label': 'Packages'
   'submenu': [
-    'label': 'CSSfmt'
+    'label': 'Stylefmt'
     'submenu': [{
       label: 'Format CSS',
-      command: 'cssfmt:execute'
+      command: 'stylefmt:execute'
     }]
   ]
 }]

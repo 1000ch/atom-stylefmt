@@ -1,19 +1,19 @@
-# [atom-cssfmt](https://atom.io/packages/cssfmt) [![Dependency Status](https://david-dm.org/1000ch/atom-cssfmt.svg)](https://david-dm.org/1000ch/atom-cssfmt)
+# [atom-stylefmt](https://atom.io/packages/stylefmt) [![Dependency Status](https://david-dm.org/1000ch/atom-stylefmt.svg)](https://david-dm.org/1000ch/atom-stylefmt)
 
-Format your CSS using [cssfmt](https://github.com/morishitter/cssfmt).
+Format your CSS using [stylefmt](https://github.com/morishitter/stylefmt).
 
-![atom-cssfmt demo](https://raw.githubusercontent.com/1000ch/atom-cssfmt/master/cssfmt.gif)
+![atom-stylefmt demo](https://raw.githubusercontent.com/1000ch/atom-stylefmt/master/stylefmt.gif)
 
 ## Installation
 
 ```bash
-$ apm install cssfmt
+$ apm install stylefmt
 ```
 
 ## Usage
 
 - Press <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>f</kbd>
-- Packages > cssfmt > Format CSS
+- Packages > stylefmt > Format CSS
 - Right Click > Format CSS
 
 Selected text will be formatted if there is selection.

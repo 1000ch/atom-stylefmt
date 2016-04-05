@@ -1,16 +1,16 @@
 {
-  "name": "cssfmt",
+  "name": "stylefmt",
   "version": "1.4.0",
   "private": true,
-  "description": "Format your CSS using cssfmt",
+  "description": "Format your CSS using stylefmt",
   "activationCommands": {
     "atom-workspace": [
-      "cssfmt:execute"
+      "stylefmt:execute"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1000ch/atom-cssfmt.git"
+    "url": "git+https://github.com/1000ch/atom-stylefmt.git"
   },
   "engines": {
     "atom": ">=1.0.0"
@@ -19,7 +19,7 @@
     "CSS",
     "format",
     "style",
-    "cssfmt"
+    "stylefmt"
   ],
   "author": {
     "name": "1000ch",
@@ -28,10 +28,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/1000ch/atom-cssfmt/issues"
+    "url": "https://github.com/1000ch/atom-stylefmt/issues"
   },
-  "homepage": "https://github.com/1000ch/atom-cssfmt#readme",
+  "homepage": "https://github.com/1000ch/atom-stylefmt#readme",
   "dependencies": {
-    "cssfmt": "^2.0.2"
+    "stylefmt": "^3.0.0"
   }
 }
