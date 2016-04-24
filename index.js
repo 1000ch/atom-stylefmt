@@ -1,6 +1,7 @@
 'use babel';
 
 import stylefmt from 'stylefmt';
+import scss from 'postcss-scss';
 
 export const config = {
   formatOnSave: {
@@ -19,27 +20,14 @@ function execute() {
   }
 
   let position = editor.getCursorBufferPosition();
+  let grammer = editor.getGrammar().name.toLowerCase();
   let text = editor.getText();
-  let selectedText = editor.getSelectedText();
+  let options = grammer === 'scss' ? { syntax : scss } : {};
 
-  if (selectedText.length !== 0) {
-    try {
-      let range = editor.getSelectedBufferRange();
-      let css = stylefmt.process(selectedText);
-      editor.setTextInBufferRange(range, css);
-      editor.setCursorBufferPosition(position);
-    } catch (e) {
-      console.error(e);
-    }
-  } else {
-    try {
-      let css = stylefmt.process(text);
-      editor.setText(css);
-      editor.setCursorBufferPosition(position);
-    } catch (e) {
-      console.error(e);
-    }
-  }
+  stylefmt.process(text, options).then(result => {
+    editor.setText(result.css);
+    editor.setCursorBufferPosition(position);
+  });
 }
 
 let editorObserver;
@@ -60,7 +48,9 @@ export function activate(state) {
 
   formatOnSave = atom.config.get('stylefmt.formatOnSave');
 
-  atom.config.observe('stylefmt.formatOnSave', value => formatOnSave = value);
+  atom.config.observe('stylefmt.formatOnSave', value => {
+    formatOnSave = value;
+  });
 }
 
 export function deactivate() {

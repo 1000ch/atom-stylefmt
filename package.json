@@ -8,15 +8,12 @@
       "stylefmt:execute"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/1000ch/atom-stylefmt.git"
-  },
+  "repository": "1000ch/atom-stylefmt",
   "engines": {
     "atom": ">=1.0.0"
   },
   "keywords": [
-    "CSS",
+    "css",
     "format",
     "style",
     "stylefmt"
@@ -32,6 +29,7 @@
   },
   "homepage": "https://github.com/1000ch/atom-stylefmt#readme",
   "dependencies": {
+    "postcss-scss": "^0.1.7",
     "stylefmt": "^3.0.0"
   }
 }

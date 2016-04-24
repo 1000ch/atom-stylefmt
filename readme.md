@@ -16,8 +16,6 @@ $ apm install stylefmt
 - Packages > stylefmt > Format CSS
 - Right Click > Format CSS
 
-Selected text will be formatted if there is selection.
-
 ## License
 
 MIT: http://1000ch.mit-license.org
