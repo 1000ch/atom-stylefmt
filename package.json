@@ -30,6 +30,6 @@
   "homepage": "https://github.com/1000ch/atom-stylefmt#readme",
   "dependencies": {
     "postcss-scss": "^0.1.7",
-    "stylefmt": "^3.0.0"
+    "stylefmt": "^4.2.3"
   }
 }
