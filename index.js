@@ -2,6 +2,7 @@
 
 import stylefmt from 'stylefmt';
 import scss from 'postcss-scss';
+import fs from 'fs';
 
 export const config = {
   formatOnSave: {
@@ -11,6 +12,32 @@ export const config = {
     default: false
   }
 };
+
+function getStylelintPathFile() {
+  
+  let projectPaths = atom.project.getPaths();  
+  let stylelintFilePath = projectPaths
+                                    .map((prjPath) => {
+                                      return path.resolve(prjPath, '.stylelintrc');
+                                    })
+                                    .reduce((result, prjPath ) => {
+                                        if (result !== '') return result;
+                                      
+                                        try {
+                                            fs.accessSync(prjPath, fs.F_OK);
+                                            return prjPath;
+                                            
+                                        } catch (e) {
+                                            // It isn't accessible
+                                        }
+                                        return result;
+                                       
+                                      
+                                    }, '');
+   
+  return stylelintFilePath;
+  
+}
 
 function execute() {
   const editor = atom.workspace.getActiveTextEditor();
@@ -23,7 +50,13 @@ function execute() {
   let grammer = editor.getGrammar().name.toLowerCase();
   let text = editor.getText();
   let options = grammer === 'scss' ? { syntax : scss } : {};
-
+  
+  let stylelintFilePath = getStylelintPathFile();
+  
+  if (stylelintFilePath !== '') {
+    options.config = stylelintFilePath;
+  }
+ 
   stylefmt.process(text, options).then(result => {
     editor.setText(result.css);
     editor.setCursorBufferPosition(position);
@@ -51,6 +84,8 @@ export function activate(state) {
   atom.config.observe('stylefmt.formatOnSave', value => {
     formatOnSave = value;
   });
+  
+  
 }
 
 export function deactivate() {
