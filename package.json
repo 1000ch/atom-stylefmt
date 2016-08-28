@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/1000ch/atom-stylefmt#readme",
   "dependencies": {
-    "postcss-scss": "^0.1.7",
+    "postcss-scss": "^0.2.1",
     "stylefmt": "^4.2.3"
   }
 }
