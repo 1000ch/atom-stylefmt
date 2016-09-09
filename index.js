@@ -1,7 +1,9 @@
 'use babel';
 
-import stylefmt from 'stylefmt';
+import * as path from 'path';
+import postcss from 'postcss';
 import scss from 'postcss-scss';
+import stylefmt from 'stylefmt';
 
 export const config = {
   formatOnSave: {
@@ -19,15 +21,23 @@ function execute() {
     return;
   }
 
-  let position = editor.getCursorBufferPosition();
-  let grammer = editor.getGrammar().name.toLowerCase();
-  let text = editor.getText();
-  let options = grammer === 'scss' ? { syntax : scss } : {};
+  const position = editor.getCursorBufferPosition();
+  const grammer = editor.getGrammar().name.toLowerCase();
+  const paths = atom.project.getPaths();
+  const text = editor.getText();
+  const options = grammer === 'scss' ? {
+    syntax : scss
+  } : {};
 
-  stylefmt.process(text, options).then(result => {
-    editor.setText(result.css);
-    editor.setCursorBufferPosition(position);
-  });
+  postcss([
+    stylefmt({
+      config: `${paths[0]}/.stylelintrc`
+    })
+  ]).process(text, options)
+    .then(result => {
+      editor.setText(result.css);
+      editor.setCursorBufferPosition(position);
+    });
 }
 
 let editorObserver;
