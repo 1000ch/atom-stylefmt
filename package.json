@@ -32,5 +32,13 @@
     "postcss": "^5.2.0",
     "postcss-scss": "^0.3.0",
     "stylefmt": "^4.2.3"
+  },
+  "configSchema": {
+    "formatOnSave": {
+      "title": "Format on Save",
+      "description": "Execute formatting CSS on save.",
+      "type": "boolean",
+      "default": false
+    }
   }
 }

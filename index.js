@@ -1,18 +1,9 @@
 'use babel';
 
-import * as path from 'path';
+import { CompositeDisposable } from 'atom';
 import postcss from 'postcss';
 import scss from 'postcss-scss';
 import stylefmt from 'stylefmt';
-
-export const config = {
-  formatOnSave: {
-    title: 'Format on Save',
-    description: 'Execute formatting CSS on save.',
-    type: 'boolean',
-    default: false
-  }
-};
 
 function execute() {
   const editor = atom.workspace.getActiveTextEditor();
@@ -40,13 +31,16 @@ function execute() {
     });
 }
 
+let subscriptions;
 let editorObserver;
 let formatOnSave;
 
 export function activate(state) {
-  atom.commands.add('atom-workspace', 'stylefmt:execute', () => {
-    execute();
-  });
+  subscriptions = new CompositeDisposable();
+
+  subscriptions.add(atom.config.observe('stylefmt.formatOnSave', value => {
+    formatOnSave = value;
+  }));
 
   editorObserver = atom.workspace.observeTextEditors(editor => {
     editor.getBuffer().onWillSave(() => {
@@ -56,13 +50,12 @@ export function activate(state) {
     });
   });
 
-  formatOnSave = atom.config.get('stylefmt.formatOnSave');
-
-  atom.config.observe('stylefmt.formatOnSave', value => {
-    formatOnSave = value;
+  atom.commands.add('atom-workspace', 'stylefmt:execute', () => {
+    execute();
   });
 }
 
 export function deactivate() {
+  subscriptions.dispose();
   editorObserver.dispose();
 }
