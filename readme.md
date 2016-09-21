@@ -14,7 +14,6 @@ $ apm install stylefmt
 
 ## Usage
 
-- Press <kbd>ctrl</kbd> + <kbd>alt</kbd> + <kbd>f</kbd>
 - Packages > stylefmt > Format CSS
 - Right Click > Format CSS
 
