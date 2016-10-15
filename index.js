@@ -41,11 +41,16 @@ function execute() {
     return;
   }
 
+  const grammar = editor.getGrammar().name.toLowerCase();
+
+  if (['css', 'scss', 'sass', 'less'].indexOf(grammar) === -1) {
+    return;
+  }
+
   const position = editor.getCursorBufferPosition();
-  const grammer = editor.getGrammar().name.toLowerCase();
   const paths = atom.project.getPaths();
   const text = editor.getText();
-  const options = grammer === 'scss' ? {
+  const options = grammar === 'scss' ? {
     syntax : scss
   } : {};
 
