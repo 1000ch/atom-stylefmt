@@ -1,6 +1,7 @@
+/* global atom */
 'use babel';
 
-import { CompositeDisposable } from 'atom';
+import {CompositeDisposable} from 'atom';
 import postcss from 'postcss';
 import scss from 'postcss-scss';
 import stylefmt from 'stylefmt';
@@ -9,7 +10,7 @@ let subscriptions;
 let editorObserver;
 let formatOnSave;
 
-export function activate(state) {
+export function activate() {
   subscriptions = new CompositeDisposable();
 
   subscriptions.add(atom.config.observe('stylefmt.formatOnSave', value => {

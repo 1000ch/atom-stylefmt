@@ -3,6 +3,9 @@
   "version": "4.0.0",
   "private": true,
   "description": "Format your CSS using stylefmt",
+  "scripts": {
+    "test": "xo"
+  },
   "activationCommands": {
     "atom-workspace": [
       "stylefmt:execute"
@@ -40,5 +43,16 @@
       "type": "boolean",
       "default": false
     }
+  },
+  "devDependencies": {
+    "xo": "^0.17.1"
+  },
+  "xo": {
+    "esnext": true,
+    "space": 2,
+    "envs": [
+      "node",
+      "browser"
+    ]
   }
 }
