@@ -48,16 +48,18 @@ function execute() {
   }
 
   const position = editor.getCursorBufferPosition();
-  const paths = atom.project.getPaths();
+  const path = editor.getPath() || atom.project.getPaths()[0];
   const text = editor.getText();
-  const options = grammar === 'scss' ? {
-    syntax : scss
-  } : {};
+  const options = {
+    from: path
+  };
+
+  if (grammar === 'scss') {
+    options.syntax = scss;
+  }
 
   postcss([
-    stylefmt({
-      config: `${paths[0]}/.stylelintrc`
-    })
+    stylefmt()
   ]).process(text, options)
     .then(result => {
       editor.setText(result.css);
