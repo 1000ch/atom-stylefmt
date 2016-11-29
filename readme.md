@@ -2,6 +2,7 @@
 
 Format your CSS using [stylefmt](https://github.com/morishitter/stylefmt).
 
+[![Build Status](https://travis-ci.org/1000ch/atom-stylefmt.svg?branch=master)](https://travis-ci.org/1000ch/atom-stylefmt)
 [![Dependency Status](https://david-dm.org/1000ch/atom-stylefmt.svg)](https://david-dm.org/1000ch/atom-stylefmt)
 [![devDependency Status](https://david-dm.org/1000ch/atom-stylefmt/dev-status.svg)](https://david-dm.org/1000ch/atom-stylefmt?type=dev)
 
