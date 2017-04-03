@@ -6,7 +6,7 @@ Format your CSS with [stylefmt](https://github.com/morishitter/stylefmt).
 [![Dependency Status](https://david-dm.org/1000ch/atom-stylefmt.svg)](https://david-dm.org/1000ch/atom-stylefmt)
 [![devDependency Status](https://david-dm.org/1000ch/atom-stylefmt/dev-status.svg)](https://david-dm.org/1000ch/atom-stylefmt?type=dev)
 
-![atom-stylefmt demo](https://raw.githubusercontent.com/1000ch/atom-stylefmt/master/stylefmt.gif)
+![demo](https://cloud.githubusercontent.com/assets/1800018/24595005/62981086-186d-11e7-9a61-aa31f5d8cb72.gif)
 
 ## Install
 
