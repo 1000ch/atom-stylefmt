@@ -3,6 +3,13 @@
   "version": "4.0.0",
   "private": true,
   "description": "Format your CSS using stylefmt",
+  "license": "MIT",
+  "repository": "1000ch/atom-stylefmt",
+  "author": {
+    "name": "1000ch",
+    "email": "shogo.sensui@gmail.com",
+    "url": "https://gisthub.com/1000ch"
+  },
   "scripts": {
     "test": "eslint ."
   },
@@ -11,7 +18,14 @@
       "stylefmt:execute"
     ]
   },
-  "repository": "1000ch/atom-stylefmt",
+  "configSchema": {
+    "formatOnSave": {
+      "title": "Format on Save",
+      "description": "Execute formatting CSS on save.",
+      "type": "boolean",
+      "default": false
+    }
+  },
   "engines": {
     "atom": ">=1.0.0"
   },
@@ -21,12 +35,6 @@
     "style",
     "stylefmt"
   ],
-  "author": {
-    "name": "1000ch",
-    "email": "shogo.sensui@gmail.com",
-    "url": "https://gisthub.com/1000ch"
-  },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/1000ch/atom-stylefmt/issues"
   },
@@ -35,14 +43,6 @@
     "postcss": "^5.2.6",
     "postcss-scss": "^0.4.0",
     "stylefmt": "^5.0.0"
-  },
-  "configSchema": {
-    "formatOnSave": {
-      "title": "Format on Save",
-      "description": "Execute formatting CSS on save.",
-      "type": "boolean",
-      "default": false
-    }
   },
   "devDependencies": {
     "eslint": "^3.19.0"

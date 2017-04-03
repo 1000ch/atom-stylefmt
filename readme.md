@@ -1,6 +1,6 @@
 # [atom-stylefmt](https://atom.io/packages/stylefmt)
 
-Format your CSS using [stylefmt](https://github.com/morishitter/stylefmt).
+Format your CSS with [stylefmt](https://github.com/morishitter/stylefmt).
 
 [![Build Status](https://travis-ci.org/1000ch/atom-stylefmt.svg?branch=master)](https://travis-ci.org/1000ch/atom-stylefmt)
 [![Dependency Status](https://david-dm.org/1000ch/atom-stylefmt.svg)](https://david-dm.org/1000ch/atom-stylefmt)
@@ -8,7 +8,7 @@ Format your CSS using [stylefmt](https://github.com/morishitter/stylefmt).
 
 ![atom-stylefmt demo](https://raw.githubusercontent.com/1000ch/atom-stylefmt/master/stylefmt.gif)
 
-## Installation
+## Install
 
 ```bash
 $ apm install stylefmt
@@ -17,8 +17,9 @@ $ apm install stylefmt
 ## Usage
 
 - Packages > stylefmt > Format CSS
-- Right Click > Format CSS
+- Context Menu > Format CSS
+- Command Palette (<kbd>⌘</kbd> + <kbd>shift</kbd> + <kbd>P</kbd>) > Format CSS
 
 ## License
 
-MIT: http://1000ch.mit-license.org
+[MIT](https://1000ch.mit-license.org) © [Shogo Sensui](https://github.com/1000ch)
