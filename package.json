@@ -11,11 +11,12 @@
     "url": "https://gisthub.com/1000ch"
   },
   "scripts": {
-    "test": "eslint ."
+    "test": "apm test",
+    "pretest": "eslint ."
   },
   "activationCommands": {
     "atom-workspace": [
-      "stylefmt:execute"
+      "stylefmt:format"
     ]
   },
   "configSchema": {
@@ -40,9 +41,9 @@
   },
   "homepage": "https://github.com/1000ch/atom-stylefmt#readme",
   "dependencies": {
-    "postcss": "^5.2.6",
-    "postcss-scss": "^0.4.0",
-    "stylefmt": "^5.0.0"
+    "postcss": "^5.2.16",
+    "postcss-scss": "^0.4.1",
+    "stylefmt": "^5.3.1"
   },
   "devDependencies": {
     "eslint": "^3.19.0"

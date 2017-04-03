@@ -1,6 +1,6 @@
 'use babel';
 
-import {CompositeDisposable} from 'atom';
+import { CompositeDisposable } from 'atom';
 import postcss from 'postcss';
 import scss from 'postcss-scss';
 import stylefmt from 'stylefmt';
@@ -19,13 +19,13 @@ export function activate() {
   editorObserver = atom.workspace.observeTextEditors(editor => {
     editor.getBuffer().onWillSave(() => {
       if (formatOnSave) {
-        execute();
+        format(atom.workspace.getActiveTextEditor());
       }
     });
   });
 
-  atom.commands.add('atom-workspace', 'stylefmt:execute', () => {
-    execute();
+  atom.commands.add('atom-workspace', 'stylefmt:format', () => {
+    format(atom.workspace.getActiveTextEditor());
   });
 }
 
@@ -34,21 +34,18 @@ export function deactivate() {
   editorObserver.dispose();
 }
 
-function execute() {
-  const editor = atom.workspace.getActiveTextEditor();
-
+export function format(editor) {
   if (!editor) {
-    return;
+    return Promise.reject('Editor is invalid');
   }
 
   const grammar = editor.getGrammar().name.toLowerCase();
 
   if (['css', 'scss', 'sass', 'less'].indexOf(grammar) === -1) {
-    return;
+    return Promise.reject(`${grammar} is not supported.`);
   }
 
-  const position = editor.getCursorBufferPosition();
-  const path = editor.getPath() || atom.project.getPaths()[0];
+  const path = editor.getPath();
   const text = editor.getText();
   const options = {
     from: path
@@ -58,11 +55,14 @@ function execute() {
     options.syntax = scss;
   }
 
-  postcss([
-    stylefmt()
-  ]).process(text, options)
-    .then(result => {
-      editor.setText(result.css);
-      editor.setCursorBufferPosition(position);
-    });
+  return postcss([stylefmt()]).process(text, options)
+    .then(result => setText(editor, result.css))
+    .catch(error => atom.notifications.addError(error.toString(), {}));
+}
+
+function setText(editor, text) {
+  const position = editor.getCursorBufferPosition();
+  editor.setText(text);
+  editor.setCursorBufferPosition(position);
+  return editor;
 }

@@ -1,7 +1,7 @@
 'context-menu':
   'atom-text-editor': [{
     label: 'Format CSS'
-    command: 'stylefmt:execute'
+    command: 'stylefmt:format'
   }]
 
 'menu': [{
@@ -10,7 +10,7 @@
     'label': 'Stylefmt'
     'submenu': [{
       label: 'Format CSS',
-      command: 'stylefmt:execute'
+      command: 'stylefmt:format'
     }]
   ]
 }]
