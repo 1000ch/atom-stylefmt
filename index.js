@@ -1,4 +1,3 @@
-/* global atom */
 'use babel';
 
 import {CompositeDisposable} from 'atom';

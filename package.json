@@ -4,7 +4,7 @@
   "private": true,
   "description": "Format your CSS using stylefmt",
   "scripts": {
-    "test": "xo"
+    "test": "eslint ."
   },
   "activationCommands": {
     "atom-workspace": [
@@ -24,7 +24,7 @@
   "author": {
     "name": "1000ch",
     "email": "shogo.sensui@gmail.com",
-    "url": "http://github.com/1000ch"
+    "url": "https://gisthub.com/1000ch"
   },
   "license": "MIT",
   "bugs": {
@@ -45,14 +45,6 @@
     }
   },
   "devDependencies": {
-    "xo": "^0.17.1"
-  },
-  "xo": {
-    "esnext": true,
-    "space": 2,
-    "envs": [
-      "node",
-      "browser"
-    ]
+    "eslint": "^3.19.0"
   }
 }
