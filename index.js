@@ -24,7 +24,7 @@ export function activate() {
     });
   });
 
-  atom.commands.add('atom-workspace', 'stylefmt:format', () => {
+  atom.commands.add('atom-text-editor:not([mini])', 'stylefmt:format', () => {
     format(atom.workspace.getActiveTextEditor());
   });
 }
