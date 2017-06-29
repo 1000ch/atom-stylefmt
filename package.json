@@ -46,6 +46,6 @@
     "stylefmt": "^6.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^4.1.1"
   }
 }
